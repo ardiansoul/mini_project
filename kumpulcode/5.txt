@@ -1,0 +1,33 @@
+cd\ 
+cd\ c:\xampp\mysql\bin
+mysql -u root -p
+
+CREATE DATABASE karyawan;
+
+USE karyawan;
+
+CREATE TABLE user_tb (
+    id INT(6) unsigned AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL);
+    
+INSERT INTO user_tb (id, name) 
+    VALUES ('1','Haris Astina');
+
+INSERT INTO user_tb(id, name)
+    VALUES ('2', 'Azizah');
+
+
+CREATE TABLE skill_tb (
+    id INT(6) unsigned NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    user_id int(6),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user_tb(id);
+    
+INSERT INTO skill_tb (id, name, user_id)
+    VALUES ('1', 'ReactJS', '1,2');
+
+INSERT INTO skill_tb(id, name, user_id)
+    VALUES ('2', 'HTML', '1');
+INSERT INTO skill_tb(id, name, user_id)
+    VALUES ('3', 'React Native', '2');
